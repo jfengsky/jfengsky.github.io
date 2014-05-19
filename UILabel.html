@@ -26,11 +26,44 @@
 <div id="md" style="display: none;">
 <!-- markdown -->
 ##UILabel
+
+####创建一个UILabel控件
+	
+	-(void)viewDidLoad
+	{
+		[super viewDidLoad];
+		
+		// 创建名为myLabel的Label控件
+		UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectMake(100,100,100,40)];
+		
+		// label显示内容
+		myLabel.text = @"这是一个Label控件";
+		
+		// 把label放到视图中去
+		[self.view addSubview:myLabel];
+	}
 <!-- markdown end -->
 </div>
 <div class="entry" id="main">
 <!-- content -->
 <h2 id="uilabel">UILabel</h2>
+
+<h4 id="uilabel">创建一个UILabel控件</h4>
+
+<pre><code>-(void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    // 创建名为myLabel的Label控件
+    UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectMake(100,100,100,40)];
+
+    // label显示内容
+    myLabel.text = @"这是一个Label控件";
+
+    // 把label放到视图中去
+    [self.view addSubview:myLabel];
+}
+</code></pre>
 <!-- content end -->
 </div>
 <br>
