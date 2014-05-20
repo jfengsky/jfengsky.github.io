@@ -34,10 +34,54 @@
 		[super viewDidLoad];
 		
 		// 创建名为myLabel的Label控件
-		UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectMake(100,100,100,40)];
-		
-		// label显示内容
-		myLabel.text = @"这是一个Label控件";
+    	UILabel *myLabel = [[UILabel alloc] 			initWithFrame:CGRectMake(100,100,100,40)];
+    
+    	// label显示内容
+    	myLabel.text = @"这是一个Label控件";
+    
+    	// 设置文字颜色
+    	myLabel.textColor = [UIColor greenColor];
+    
+    
+    	// 设置阴影颜色
+    	myLabel.shadowColor = [UIColor redColor];
+    
+    	// 设置阴影距离
+    	myLabel.shadowOffset = CGSizeMake(2, 3);
+    
+    	// 设置高亮
+    	myLabel.highlighted = YES;
+    
+    	// myLabel.highlightedTextColor = [UIColor blueColor];
+    
+    	// 设置字体
+    	myLabel.font = [UIFont fontWithName:@"Arial" size:35];
+    
+    	// 设置文本水平显示位置 IOS6
+    	// myLabel.textAlignment = UITextAlignmentCenter;
+    
+    	// 设置背景颜色
+    	myLabel.backgroundColor = [UIColor grayColor];
+    
+    	// 设置单词折行方式 IOS6
+    	// myLabel.lineBreakMode = UILineBreakModeCharacterWrap;
+    
+    	// 设置label是否可以显示多行，0则显示多行
+    	myLabel.numberOfLines = 2;
+    
+    	// 设置字体大小适宜label宽度
+    	myLabel.adjustsFontSizeToFitWidth = YES;
+    
+    	// 设置label中的文字是否可变，默认是YES
+    	myLabel.enabled = NO;
+    
+    	// 设置标签文字过长时的显示方式
+    	// myLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    	myLabel.lineBreakMode = NSLineBreakByClipping;
+    
+    	// 竖排显示文字
+    	myLabel.text = @"请\n竖\n直\n方\n向\n排\n列";
+    
 		
 		// 把label放到视图中去
 		[self.view addSubview:myLabel];
@@ -55,10 +99,54 @@
     [super viewDidLoad];
 
     // 创建名为myLabel的Label控件
-    UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectMake(100,100,100,40)];
+    UILabel *myLabel = [[UILabel alloc]             initWithFrame:CGRectMake(100,100,100,40)];
 
     // label显示内容
     myLabel.text = @"这是一个Label控件";
+
+    // 设置文字颜色
+    myLabel.textColor = [UIColor greenColor];
+
+
+    // 设置阴影颜色
+    myLabel.shadowColor = [UIColor redColor];
+
+    // 设置阴影距离
+    myLabel.shadowOffset = CGSizeMake(2, 3);
+
+    // 设置高亮
+    myLabel.highlighted = YES;
+
+    // myLabel.highlightedTextColor = [UIColor blueColor];
+
+    // 设置字体
+    myLabel.font = [UIFont fontWithName:@"Arial" size:35];
+
+    // 设置文本水平显示位置 IOS6
+    // myLabel.textAlignment = UITextAlignmentCenter;
+
+    // 设置背景颜色
+    myLabel.backgroundColor = [UIColor grayColor];
+
+    // 设置单词折行方式 IOS6
+    // myLabel.lineBreakMode = UILineBreakModeCharacterWrap;
+
+    // 设置label是否可以显示多行，0则显示多行
+    myLabel.numberOfLines = 2;
+
+    // 设置字体大小适宜label宽度
+    myLabel.adjustsFontSizeToFitWidth = YES;
+
+    // 设置label中的文字是否可变，默认是YES
+    myLabel.enabled = NO;
+
+    // 设置标签文字过长时的显示方式
+    // myLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    myLabel.lineBreakMode = NSLineBreakByClipping;
+
+    // 竖排显示文字
+    myLabel.text = @"请\n竖\n直\n方\n向\n排\n列";
+
 
     // 把label放到视图中去
     [self.view addSubview:myLabel];
