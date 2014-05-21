@@ -25,12 +25,101 @@
 	</div>
 <div id="md" style="display: none;">
 <!-- markdown -->
-####UIButton
+##UIButton
+####创建一个UIButton控件
+	- (void)viewDidLoad
+	{
+    	[super viewDidLoad];
+	
+    	// 创建一个button
+    	UIButton *myButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    
+    	// 创建一个圆角按钮
+    	UIButton *newButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    	newButton.frame = CGRectMake(200, 200, 100, 100);
+    
+    	// 设置button显示标题 在正常状态下
+    	[myButton setTitle:@"按钮" forState:UIControlStateNormal];
+    
+    	// 设置高亮状态下的文字
+    	[myButton setTitle:@"按钮被点击" forState:UIControlStateHighlighted];
+    
+    	// 设置按钮文字颜色
+    	[myButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    
+    	[newButton setTitle:@"圆角按钮" forState:UIControlStateNormal];
+    
+    	// 设置背景颜色，其它一些属性与UILabel类似
+    	myButton.backgroundColor = [UIColor orangeColor];
+    
+    	// 给button绑定事件
+    	/*
+     	* Target: 执行某一对象中的方法
+     	* action: 要执行的方法名字
+     	* forControlEvents: 绑定的事件
+     	*/
+    	[myButton addTarget:self action:@selector(myButtonEvent) forControlEvents:UIControlEventTouchUpInside];
+    
+    	[self.view addSubview:myButton];
+    	[self.view addSubview:newButton];
+	}
+	
+	// 给button设置事件
+	- (void)myButtonEvent
+	{
+    	NSLog(@"button touch");
+	}
 <!-- markdown end -->
 </div>
 <div class="entry" id="main">
 <!-- content -->
-<h4 id="uibutton">UIButton</h4>
+<h2 id="uibutton">UIButton</h2>
+
+<h4 id="uibutton">创建一个UIButton控件</h4>
+
+<pre><code>- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    // 创建一个button
+    UIButton *myButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+
+    // 创建一个圆角按钮
+    UIButton *newButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    newButton.frame = CGRectMake(200, 200, 100, 100);
+
+    // 设置button显示标题 在正常状态下
+    [myButton setTitle:@"按钮" forState:UIControlStateNormal];
+
+    // 设置高亮状态下的文字
+    [myButton setTitle:@"按钮被点击" forState:UIControlStateHighlighted];
+
+    // 设置按钮文字颜色
+    [myButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+
+    [newButton setTitle:@"圆角按钮" forState:UIControlStateNormal];
+
+    // 设置背景颜色，其它一些属性与UILabel类似
+    myButton.backgroundColor = [UIColor orangeColor];
+
+    // 给button绑定事件
+    /*
+     * Target: 执行某一对象中的方法
+     * action: 要执行的方法名字
+     * forControlEvents: 绑定的事件
+     */
+    [myButton addTarget:self action:@selector(myButtonEvent) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.view addSubview:myButton];
+    [self.view addSubview:newButton];
+}
+
+// 给button设置事件
+- (void)myButtonEvent
+{
+    NSLog(@"button touch");
+}
+</code></pre>
 <!-- content end -->
 </div>
 <br>
