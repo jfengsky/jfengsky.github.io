@@ -27,6 +27,13 @@
 <!-- markdown -->
 ##UIView
 ####创建一个UIView控件示例
+	{
+    	UIView *_backView;
+	}
+	- (void) timeTick
+	{
+    	_backView.frame = CGRectMake(_backView.frame.origin.x, _backView.frame.origin.y, _backView.frame.size.width + 1, 	_backView.frame.size.height + 1);
+	}
 	- (void)viewDidLoad
 	{
     	[super viewDidLoad];
@@ -36,20 +43,65 @@
     	view1.frame = CGRectMake(10, 10, 300, 30);
     	view1.backgroundColor = [UIColor redColor];
     
+    	// 自动剪裁子view
+    	// view1.clipsToBounds = YES;
+    
     	[self.view addSubview:view1];
     
     	UIView *view2 = [[UIView alloc] init];
-    	view2.frame = CGRectMake(10, 30, 300, 30);
-    	view2.backgroundColor = [UIColor blueColor];
-    	
+    	view2.frame = CGRectMake(5, 5, 100, 30);
+    	view2.backgroundColor = [UIColor yellowColor];
+    
     	// 设置view标记,可通过tag来获取指定的view
     	view2.tag = 2;
-    	
+    
+    	// 设置透明度
+    	view2.alpha = 0.2;
+    
     	[view1 addSubview:view2];
     
+    	UIView *view3 = [[UIView alloc] init];
+    	view3.frame = CGRectMake(100, 5, 100, 20);
+    	view3.backgroundColor = [UIColor blueColor];
+    
+    	[view1 addSubview:view3];
+    
+    
+    	// 得到父类视图
+    	UIView *superView = view3.superview;
+    	superView.backgroundColor = [UIColor blackColor];
+    
+    	// 得到子类视图,是一个数组
+    	NSArray *subViews = view1.subviews;
+    	for (UIView *view in subViews) {
+        	view.backgroundColor = [UIColor greenColor];
+    	}
+    
+    	// 根据数组下标获取数组元素
+    	UIView *view = [subViews objectAtIndex:0];
+    	view.backgroundColor = [UIColor whiteColor];
+    
+    
+    	// 自动布局
+    	_backView = [[UIView alloc] init];
+    	_backView.frame = CGRectMake(100, 300, 120, 120);
+    	_backView.backgroundColor = [UIColor  blackColor];
+    	// 准许之类view自动布局
+    	_backView.autoresizesSubviews = YES;
+    	[self.view addSubview:_backView];
+    
+    	UIView *topView = [[UIView alloc] init];
+    	topView.frame = CGRectMake(10, 10, 100, 100);
+    	topView.backgroundColor = [UIColor orangeColor];
+    	// 设置自动布局方式 宽度跟随改变
+    	topView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    	[_backView addSubview:topView];
+    
+    	[NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timeTick) userInfo:nil repeats:YES];
 	}
 
-####frame
+####1.frame
 	CGRectMake(x坐标, Y坐标, 宽度, 高度)
 	// 所以获取元素的坐标 宽和高
 	view.frame.origin.x
@@ -61,6 +113,8 @@
 	CGPoint point = view.center;
 	// 坐标分别是(point.x,point.y)
 	
+####2.
+	
 
 <!-- markdown end -->
 </div>
@@ -70,7 +124,14 @@
 
 <h4 id="uiview">创建一个UIView控件示例</h4>
 
-<pre><code>- (void)viewDidLoad
+<pre><code>{
+    UIView *_backView;
+}
+- (void) timeTick
+{
+    _backView.frame = CGRectMake(_backView.frame.origin.x, _backView.frame.origin.y, _backView.frame.size.width + 1,    _backView.frame.size.height + 1);
+}
+- (void)viewDidLoad
 {
     [super viewDidLoad];
     UIView *view1 = [[UIView alloc] init];
@@ -79,21 +140,66 @@
     view1.frame = CGRectMake(10, 10, 300, 30);
     view1.backgroundColor = [UIColor redColor];
 
+    // 自动剪裁子view
+    // view1.clipsToBounds = YES;
+
     [self.view addSubview:view1];
 
     UIView *view2 = [[UIView alloc] init];
-    view2.frame = CGRectMake(10, 30, 300, 30);
-    view2.backgroundColor = [UIColor blueColor];
+    view2.frame = CGRectMake(5, 5, 100, 30);
+    view2.backgroundColor = [UIColor yellowColor];
 
     // 设置view标记,可通过tag来获取指定的view
     view2.tag = 2;
 
+    // 设置透明度
+    view2.alpha = 0.2;
+
     [view1 addSubview:view2];
 
+    UIView *view3 = [[UIView alloc] init];
+    view3.frame = CGRectMake(100, 5, 100, 20);
+    view3.backgroundColor = [UIColor blueColor];
+
+    [view1 addSubview:view3];
+
+
+    // 得到父类视图
+    UIView *superView = view3.superview;
+    superView.backgroundColor = [UIColor blackColor];
+
+    // 得到子类视图,是一个数组
+    NSArray *subViews = view1.subviews;
+    for (UIView *view in subViews) {
+        view.backgroundColor = [UIColor greenColor];
+    }
+
+    // 根据数组下标获取数组元素
+    UIView *view = [subViews objectAtIndex:0];
+    view.backgroundColor = [UIColor whiteColor];
+
+
+    // 自动布局
+    _backView = [[UIView alloc] init];
+    _backView.frame = CGRectMake(100, 300, 120, 120);
+    _backView.backgroundColor = [UIColor  blackColor];
+    // 准许之类view自动布局
+    _backView.autoresizesSubviews = YES;
+    [self.view addSubview:_backView];
+
+    UIView *topView = [[UIView alloc] init];
+    topView.frame = CGRectMake(10, 10, 100, 100);
+    topView.backgroundColor = [UIColor orangeColor];
+    // 设置自动布局方式 宽度跟随改变
+    topView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+
+    [_backView addSubview:topView];
+
+    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timeTick) userInfo:nil repeats:YES];
 }
 </code></pre>
 
-<h4 id="frame">frame</h4>
+<h4 id="1frame">1.frame</h4>
 
 <pre><code>CGRectMake(x坐标, Y坐标, 宽度, 高度)
 // 所以获取元素的坐标 宽和高
@@ -106,6 +212,8 @@ view.frame.origin.height
 CGPoint point = view.center;
 // 坐标分别是(point.x,point.y)
 </code></pre>
+
+<h4 id="2">2.</h4>
 <!-- content end -->
 </div>
 <br>
