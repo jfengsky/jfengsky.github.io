@@ -108,11 +108,11 @@
 	view.frame.origin.y
 	view.frame.origin.width
 	view.frame.origin.height
-	
+
 	// 获取元素的中心点位置
 	CGPoint point = view.center;
 	// 坐标分别是(point.x,point.y)
-	
+
 ####2.clipsToBounds 自动裁剪层
 	view.clipsToBounds = YES;
 
@@ -131,13 +131,13 @@
 
 	// 把blueView放到最上层
 	[self.window sendSubviewTOFront:blueView];
-	
+
 	// 插入指定层到某位位置
 	[self.window insertSubview:greenView atIndex: 1];
-	
+
 	// 插入到指定view的下层
 	[self.window insertSubview:greenView belowSubview: redView];
-	
+
 	// 交换两个层的view
 	[self.window exchangeSubviewAtIndex:0 withSubviewAtIndex:1];
 <!-- markdown end -->
