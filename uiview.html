@@ -114,12 +114,32 @@
 	// 坐标分别是(point.x,point.y)
 	
 ####2.clipsToBounds 自动裁剪层
+	view.clipsToBounds = YES;
 
 ####3.alpha 设置层的透明度
+	view.alpha = 0.5;
 
 ####4.autoresizesSubviews,autoresizingMask
 准许子类层自动布局和子类层自动布局方式
+
+	_backView.autoresizesSubviews = YES;
+	topView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+
+####5.把某一个view放到最下层，必须由父类操作子类层
+	// 把blueView放到最下层
+	[self.window sendSubViewToBack:blueView];
+
+	// 把blueView放到最上层
+	[self.window sendSubviewTOFront:blueView];
 	
+	// 插入指定层到某位位置
+	[self.window insertSubview:greenView atIndex: 1];
+	
+	// 插入到指定view的下层
+	[self.window insertSubview:greenView belowSubview: redView];
+	
+	// 交换两个层的view
+	[self.window exchangeSubviewAtIndex:0 withSubviewAtIndex:1];
 <!-- markdown end -->
 </div>
 <div class="entry" id="main">
@@ -219,11 +239,39 @@ CGPoint point = view.center;
 
 <h4 id="2clipstobounds">2.clipsToBounds 自动裁剪层</h4>
 
+<pre><code>view.clipsToBounds = YES;
+</code></pre>
+
 <h4 id="3alpha">3.alpha 设置层的透明度</h4>
+
+<pre><code>view.alpha = 0.5;
+</code></pre>
 
 <h4 id="4autoresizessubviewsautoresizingmask">4.autoresizesSubviews,autoresizingMask</h4>
 
 <p>准许子类层自动布局和子类层自动布局方式</p>
+
+<pre><code>_backView.autoresizesSubviews = YES;
+topView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+</code></pre>
+
+<h4 id="5view">5.把某一个view放到最下层，必须由父类操作子类层</h4>
+
+<pre><code>// 把blueView放到最下层
+[self.window sendSubViewToBack:blueView];
+
+// 把blueView放到最上层
+[self.window sendSubviewTOFront:blueView];
+
+// 插入指定层到某位位置
+[self.window insertSubview:greenView atIndex: 1];
+
+// 插入到指定view的下层
+[self.window insertSubview:greenView belowSubview: redView];
+
+// 交换两个层的view
+[self.window exchangeSubviewAtIndex:0 withSubviewAtIndex:1];
+</code></pre>
 <!-- content end -->
 </div>
 <br>
