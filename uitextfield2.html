@@ -27,6 +27,43 @@
 <!-- markdown -->
 ####UITextField事件绑定
 	UITextFieldDelegate
+	
+######是否允许进入编辑模式
+	- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+	{
+    	return YES;
+	}
+
+######进入编辑模式
+	- (void)textFieldDidBeginEditing:(UITextField *)textField
+	{
+    	NSLog(@"进入编辑模式");
+	}
+
+######是否可以退出编辑模式 NO:不可切换textfield
+	- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+	{
+    	return YES;
+	}
+
+######退出编辑模式
+	- (void)textFieldDidEndEditing:(UITextField *)textField
+	{
+    	NSLog(@"退出了编辑模式");
+	}
+
+######是否可以点击清除按钮
+	- (BOOL)textFieldShouldClear:(UITextField *)textField
+	{
+    	return NO;
+	}
+
+######是否可以点击清除按钮
+	- (BOOL)textFieldShouldReturn:(UITextField *)textField
+	{
+    	[textField resignFirstResponder]; // 收起键盘方法
+    	return YES;
+	}
 <!-- markdown end -->
 </div>
 <div class="entry" id="main">
@@ -34,6 +71,55 @@
 <h4 id="uitextfield">UITextField事件绑定</h4>
 
 <pre><code>UITextFieldDelegate
+</code></pre>
+
+<h6 id="">是否允许进入编辑模式</h6>
+
+<pre><code>- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    return YES;
+}
+</code></pre>
+
+<h6 id="">进入编辑模式</h6>
+
+<pre><code>- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    NSLog(@"进入编辑模式");
+}
+</code></pre>
+
+<h6 id="notextfield">是否可以退出编辑模式 NO:不可切换textfield</h6>
+
+<pre><code>- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    return YES;
+}
+</code></pre>
+
+<h6 id="">退出编辑模式</h6>
+
+<pre><code>- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSLog(@"退出了编辑模式");
+}
+</code></pre>
+
+<h6 id="">是否可以点击清除按钮</h6>
+
+<pre><code>- (BOOL)textFieldShouldClear:(UITextField *)textField
+{
+    return NO;
+}
+</code></pre>
+
+<h6 id="">是否可以点击清除按钮</h6>
+
+<pre><code>- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder]; // 收起键盘方法
+    return YES;
+}
 </code></pre>
 <!-- content end -->
 </div>
