@@ -64,6 +64,15 @@
     	[textField resignFirstResponder]; // 收起键盘方法
     	return YES;
 	}
+
+######键盘升起通知
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow) name:UIKeyboardWillShowNotification object:nil];
+	
+	// 执行方法
+	- (void)keyboardWillShow
+	{
+    	NSLog(@"键盘升起来了");
+	}
 <!-- markdown end -->
 </div>
 <div class="entry" id="main">
@@ -119,6 +128,17 @@
 {
     [textField resignFirstResponder]; // 收起键盘方法
     return YES;
+}
+</code></pre>
+
+<h6 id="">键盘升起通知</h6>
+
+<pre><code>[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow) name:UIKeyboardWillShowNotification object:nil];
+
+// 执行方法
+- (void)keyboardWillShow
+{
+    NSLog(@"键盘升起来了");
 }
 </code></pre>
 <!-- content end -->
