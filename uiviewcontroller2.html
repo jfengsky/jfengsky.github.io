@@ -28,6 +28,11 @@
 #### UIVIewController的一些方法
 
 ######loadView
+	- (void)loadView
+	{
+    	// 先要调用父类方法
+    	[super loadView];
+	}
 
 ######viewDidLoad
 
@@ -36,13 +41,34 @@
 ######didReceiveMemoryWarning
 
 ######viewWillAppear
-
+	// 将要进入屏幕
+	- (void)viewWillAppear:(BOOL)animated
+	{
+    	[super viewWillAppear:animated];
+    	NSLog(@"MainViewController - viewWillAppear");
+	}
+	
 ######viewDidAppear
-
+	// 已经进入屏幕
+	- (void)viewDidAppear:(BOOL)animated
+	{
+    	[super viewDidAppear:animated];
+    	NSLog(@"MainViewController - viewDidAppear");
+	}
 ######viewWillDisappear
-
+	// 将要退出屏幕
+	- (void)viewWillDisappear:(BOOL)animated
+	{
+    	[super viewWillDisappear:animated];
+    	NSLog(@"MainViewController - viewWillDisapper");
+	}
 ######viewDidDisappear
-
+	// 已经退出屏幕
+	- (void)viewDidDisappear:(BOOL)animated
+	{
+    	[super viewDidDisappear:animated];
+    	NSLog(@"MainViewController - viewDidDisappear");
+	}
 
 <!-- markdown end -->
 </div>
@@ -52,6 +78,13 @@
 
 <h6 id="loadview">loadView</h6>
 
+<pre><code>- (void)loadView
+{
+    // 先要调用父类方法
+    [super loadView];
+}
+</code></pre>
+
 <h6 id="viewdidload">viewDidLoad</h6>
 
 <h6 id="viewdidunload">viewDidUnload</h6>
@@ -60,11 +93,43 @@
 
 <h6 id="viewwillappear">viewWillAppear</h6>
 
+<pre><code>// 将要进入屏幕
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSLog(@"MainViewController - viewWillAppear");
+}
+</code></pre>
+
 <h6 id="viewdidappear">viewDidAppear</h6>
+
+<pre><code>// 已经进入屏幕
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSLog(@"MainViewController - viewDidAppear");
+}
+</code></pre>
 
 <h6 id="viewwilldisappear">viewWillDisappear</h6>
 
+<pre><code>// 将要退出屏幕
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    NSLog(@"MainViewController - viewWillDisapper");
+}
+</code></pre>
+
 <h6 id="viewdiddisappear">viewDidDisappear</h6>
+
+<pre><code>// 已经退出屏幕
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    NSLog(@"MainViewController - viewDidDisappear");
+}
+</code></pre>
 <!-- content end -->
 </div>
 <br>
