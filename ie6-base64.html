@@ -25,23 +25,160 @@
 	</div>
 <div id="md" style="display: none;">
 <!-- markdown -->
-公司项目遇到个大坑，要在ie6显示base64编码的图片，
+####ie6显示base64图片的解决办法
+公司项目踩到个大坑，要在ie6显示base64编码的图片...
+#####方法一
 在CSDN里一个帖子找到一个办法，利用MHTML，
 代码如下：
-    
+
+    <!--
+	------=_NextPart_000_0000_01CA9F59.AFB45FE0
+	Content-Type: image/jpg
+	Content-Transfer-Encoding: base64
+	Content-Location: logo.jpg
+	//base64 code
+	
+	!-->
+	<img src="data:image/jpg;base64, base64 code..." onerror="src='mhtml:' + document.location.href + '!logo.jpg';"/>
+
+#####方法二
+	
+	<!--
+	Content-Type: multipart/related; boundary="[MHTML_EMBED_CODE]"
+
+	--[MHTML_EMBED_CODE]
+	Content-Type: image/jpg
+	Content-Location: img1
+	Content-Transfer-Encoding: base64
+
+	// base64 code 1
+
+
+	--[MHTML_EMBED_CODE]
+	Content-Type: image/png
+	Content-Location: img2
+	Content-Transfer-Encoding: base64
+
+	// base64 code 2
+
+	--[MHTML_EMBED_CODE]
+	Content-Type: image/png
+	Content-Location: img3
+	Content-Transfer-Encoding: base64
+	
+	// base64 code 3
+
+	-->
+
+	<html>
+	<head>
+	<meta http-equiv="content-type" content="text/html; charset=GB2312">
+	</head>
+	<body>
+
+
+	<img id="img1" src="*" />
+	<img id="img2" src="*" />
+	<img id="img3" src="*" />
+
+	<script type="text/javascript">
+	var img1=document.getElementById("img1"),
+    	img2=document.getElementById("img2"),
+    	img3=document.getElementById("img3");
+      
+	img1.src='mhtml:'+document.location+'!img1';
+	img2.src='mhtml:'+document.location+'!img2';  
+	img3.src='mhtml:'+document.location+'!img3';
+	</script>
+	</body>
+	</html>
+
+示例地址：[github](https://github.com/jfengsky/sync/tree/master/base64)
+
 
 参考：
-CSDN的这个帖子 http://bbs.csdn.net/topics/330077178
+CSDN的这个帖子 [http://bbs.csdn.net/topics/330077178](http://bbs.csdn.net/topics/330077178)
 <!-- markdown end -->
 </div>
 <div class="entry" id="main">
 <!-- content -->
-<p>公司项目遇到个大坑，要在ie6显示base64编码的图片，
-在CSDN里一个帖子找到一个办法，利用MHTML，
+<h4 id="ie6base64">ie6显示base64图片的解决办法</h4>
+
+<p>公司项目踩到个大坑，要在ie6显示base64编码的图片...</p>
+
+<h5 id="">方法一</h5>
+
+<p>在CSDN里一个帖子找到一个办法，利用MHTML，
 代码如下：</p>
 
+<pre><code>&lt;!--
+------=_NextPart_000_0000_01CA9F59.AFB45FE0
+Content-Type: image/jpg
+Content-Transfer-Encoding: base64
+Content-Location: logo.jpg
+//base64 code
+
+!--&gt;
+&lt;img src="data:image/jpg;base64, base64 code..." onerror="src='mhtml:' + document.location.href + '!logo.jpg';"/&gt;
+</code></pre>
+
+<h5 id="">方法二</h5>
+
+<pre><code>&lt;!--
+Content-Type: multipart/related; boundary="[MHTML_EMBED_CODE]"
+
+--[MHTML_EMBED_CODE]
+Content-Type: image/jpg
+Content-Location: img1
+Content-Transfer-Encoding: base64
+
+// base64 code 1
+
+
+--[MHTML_EMBED_CODE]
+Content-Type: image/png
+Content-Location: img2
+Content-Transfer-Encoding: base64
+
+// base64 code 2
+
+--[MHTML_EMBED_CODE]
+Content-Type: image/png
+Content-Location: img3
+Content-Transfer-Encoding: base64
+
+// base64 code 3
+
+--&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=GB2312"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;img id="img1" src="*" /&gt;
+&lt;img id="img2" src="*" /&gt;
+&lt;img id="img3" src="*" /&gt;
+
+&lt;script type="text/javascript"&gt;
+var img1=document.getElementById("img1"),
+    img2=document.getElementById("img2"),
+    img3=document.getElementById("img3");
+
+img1.src='mhtml:'+document.location+'!img1';
+img2.src='mhtml:'+document.location+'!img2';  
+img3.src='mhtml:'+document.location+'!img3';
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>示例地址：<a href="https://github.com/jfengsky/sync/tree/master/base64">github</a></p>
+
 <p>参考：
-CSDN的这个帖子 http://bbs.csdn.net/topics/330077178</p>
+CSDN的这个帖子 <a href="http://bbs.csdn.net/topics/330077178">http://bbs.csdn.net/topics/330077178</a></p>
 <!-- content end -->
 </div>
 <br>
