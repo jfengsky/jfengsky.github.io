@@ -25,12 +25,65 @@
 	</div>
 <div id="md" style="display: none;">
 <!-- markdown -->
+用swift实现UILabel
 
+    import UIKit
+
+    @UIApplicationMain
+    class AppDelegate: UIResponder, UIApplicationDelegate {
+                                
+        var window: UIWindow?
+
+
+        func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
+            
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            self.window!.backgroundColor = UIColor.whiteColor()
+            self.window!.makeKeyAndVisible()
+            
+            let rect = CGRect(x:0, y:100, width: 320, height: 400)
+            var myLabel = UILabel(frame: rect)
+            
+            myLabel.text = "jfeng"
+            self.window!.addSubview(myLabel)
+            
+            return true
+        }
+
+
+    }
 <!-- markdown end -->
 </div>
 <div class="entry" id="main">
 <!-- content -->
+<p>用swift实现UILabel</p>
 
+<pre><code>import UIKit
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+
+
+    func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -&gt; Bool {
+
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window!.backgroundColor = UIColor.whiteColor()
+        self.window!.makeKeyAndVisible()
+
+        let rect = CGRect(x:0, y:100, width: 320, height: 400)
+        var myLabel = UILabel(frame: rect)
+
+        myLabel.text = "jfeng"
+        self.window!.addSubview(myLabel)
+
+        return true
+    }
+
+
+}
+</code></pre>
 <!-- content end -->
 </div>
 <br>
