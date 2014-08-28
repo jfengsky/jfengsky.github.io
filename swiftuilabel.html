@@ -25,7 +25,7 @@
 	</div>
 <div id="md" style="display: none;">
 <!-- markdown -->
-用swift实现UILabel
+#####用swift直接实现UILabel，在AppDelegate.swift加入下面代码：
 
     import UIKit
 
@@ -52,11 +52,45 @@
 
 
     }
+    
+    
+#####采用新文件方式：
+
+创建RootViewController.swift文件，内容如下
+	
+	import Foundation
+    import UIKit
+
+    // 定义一个类
+    class RootViewController: UIViewController {
+        
+        // 定义一个函数，viewDidLoad函数是基类有的一个函数
+        override func viewDidLoad() {
+            
+            // 调用基类的viewDidLoad()方法
+            super.viewDidLoad()
+            
+            // 在界面上加一个label
+            let rect = CGRect(x: 10, y: 100, width: 320, height: 44)
+            var myLabel = UILabel(frame: rect)
+            myLabel.text = "label text"
+            myLabel.textColor = UIColor.whiteColor()
+            // label放入页面
+            self.view.addSubview(myLabel)
+            
+        }
+    }
+
+在AppDelegate.swift加入代码
+	
+	// 创建界面控制器
+    let rvc = RootViewController()
+    self.window!.rootViewController = rvc
 <!-- markdown end -->
 </div>
 <div class="entry" id="main">
 <!-- content -->
-<p>用swift实现UILabel</p>
+<h5 id="swiftuilabelappdelegateswift">用swift直接实现UILabel，在AppDelegate.swift加入下面代码：</h5>
 
 <pre><code>import UIKit
 
@@ -83,6 +117,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+</code></pre>
+
+<h5 id="">采用新文件方式：</h5>
+
+<p>创建RootViewController.swift文件，内容如下</p>
+
+<pre><code>import Foundation
+import UIKit
+
+// 定义一个类
+class RootViewController: UIViewController {
+
+    // 定义一个函数，viewDidLoad函数是基类有的一个函数
+    override func viewDidLoad() {
+
+        // 调用基类的viewDidLoad()方法
+        super.viewDidLoad()
+
+        // 在界面上加一个label
+        let rect = CGRect(x: 10, y: 100, width: 320, height: 44)
+        var myLabel = UILabel(frame: rect)
+        myLabel.text = "label text"
+        myLabel.textColor = UIColor.whiteColor()
+        // label放入页面
+        self.view.addSubview(myLabel)
+
+    }
+}
+</code></pre>
+
+<p>在AppDelegate.swift加入代码</p>
+
+<pre><code>// 创建界面控制器
+let rvc = RootViewController()
+self.window!.rootViewController = rvc
 </code></pre>
 <!-- content end -->
 </div>
